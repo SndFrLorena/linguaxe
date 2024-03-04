@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="file:06.xslt"?>
+<viños>
+  <viño DO="Rioja">
+    <nome>Marqués de Murrieta</nome>
+    <tipo>Reserva</tipo>
+    <prezo>16</prezo>
+  </viño>
+  <viño DO="Ribera del Duero">
+    <nome>Loes Collection</nome>
+    <tipo>Reserva</tipo>
+    <prezo>34</prezo>
+  </viño>
+  <viño DO="Ribera del Guadiana">
+    <nome>Acilates 2013</nome>
+    <tipo>Reserva</tipo>
+    <prezo>15</prezo>
+  </viño>
+  <viño DO="Rioja">
+    <nome>Faustino</nome>
+    <tipo>Crianza</tipo>
+    <prezo>5</prezo>
+  </viño>
+  <viño DO="Ribera del Duero">
+    <nome>Rolland Galarreta</nome>
+    <tipo>Crianza</tipo>
+    <prezo>16</prezo>
+  </viño>
+  <viño DO="Ribera del Guadiana">
+    <nome>Palacio Quemado Primicia</nome>
+    <tipo>Crianza</tipo>
+    <prezo>6</prezo>
+  </viño>
+  <viño DO="Rioja">
+    <nome>Castillo Ygay 1986</nome>
+    <tipo> Gran Reserva</tipo>
+    <prezo>495</prezo>
+  </viño>
+  <viño DO="Ribera del Duero">
+    <nome>Alonso del Yerro 2012</nome>
+    <tipo>Crianza</tipo>
+    <prezo>21</prezo>
+  </viño>
+  <viño DO="Ribera del Guadiana">
+    <nome>Palacio Quemado Reserva 2011</nome>
+    <tipo>Reserva</tipo>
+    <prezo>9</prezo>
+  </viño>
+  <viño DO="Rioja">
+    <nome>Barón de Ley 2011</nome>
+    <tipo>Reserva</tipo>
+    <prezo>9</prezo>
+  </viño>
+  <viño DO="Ribera del Duero">
+    <nome>Corral del Obispo</nome>
+    <tipo>Crianza</tipo>
+    <prezo>8</prezo>
+  </viño>
+  <viño DO="Ribera del Guadiana">
+    <nome>Carabal Macareno 2007 Magnum 1'5L</nome>
+    <tipo>Crianza</tipo>
+    <prezo>32</prezo>
+  </viño>
+  <viño DO="Ribera del Guadiana">
+    <nome>Jaloco</nome>
+    <tipo>Gran Reserva</tipo>
+    <prezo>***</prezo>
+  </viño>
+</viños>
+
+
+1. Muestra el primer valor
+Muestra el nombre y el precio del primer vino.
+
+Pista. Value-of
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #338DFF;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Nombre y Precio del Primer Vino</h2>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+      </tr>
+      <xsl:apply-templates select="viños/viño[1]"/>
+    </table>
+  </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <tr>
+    <td><xsl:value-of select="nome"/></td>
+    <td><xsl:value-of select="prezo"/></td>
+  </tr>
+</xsl:template>
+
+</xsl:stylesheet>
+
+      
+      2. Muestra todos los valores
+Muestra para todos los vinos el nombre y el precio.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #338DFF;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Nombre y Precio de los Vinos</h2>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+      </tr>
+      <xsl:apply-templates select="viños/viño"/>
+    </table>
+  </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <tr>
+    <td><xsl:value-of select="nome"/></td>
+    <td><xsl:value-of select="prezo"/></td>
+  </tr>
+</xsl:template>
+
+</xsl:stylesheet>
+
+Pista. for-each
+
+  3. Ordena los valores.
+Ordena los vinos de más caro a más barato.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #338DFF ;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Nombre y Precio de los Vinos (Ordenados de más caro a más barato)</h2>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+      </tr>
+      <xsl:apply-templates select="viños/viño">
+        <xsl:sort select="prezo" data-type="number" order="descending"/>
+      </xsl:apply-templates>
+    </table>
+  </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <tr>
+    <td><xsl:value-of select="nome"/></td>
+    <td><xsl:value-of select="prezo"/></td>
+  </tr>
+</xsl:template>
+
+</xsl:stylesheet>
+
+
+Pista. sort
+
+
+a) ¿qué pasa si no ponemos el data type? 
+
+Si no especificas el atributo `data-type` en la ordenación (`<xsl:sort>`), el motor XSLT tratará los valores como cadenas de texto y los ordenará de acuerdo con las reglas de ordenación de cadenas. Esto significa que los valores numéricos se ordenarán como si fueran cadenas de texto, lo cual puede dar lugar a resultados inesperados.
+
+Por ejemplo, si tienes los precios "5", "16", "21", etc., el ordenamiento sería lexicográfico, lo que colocaría "21" antes de "5" debido a que "2" es mayor que "5" en términos de ordenación de cadenas.
+
+Por lo tanto, es importante especificar el tipo de datos adecuado en el atributo `data-type` de `<xsl:sort>` para garantizar un ordenamiento correcto. En este caso, como estamos ordenando precios, que son valores numéricos, es necesario especificar `data-type="number"` para que el ordenamiento se realice correctamente.
+
+b) ¿cuál es el orden por defecto?
+
+El orden por defecto en XSLT es el ordenamiento alfabético ascendente (o lexicográfico) de los valores. Esto significa que los valores se ordenan como cadenas de texto, siguiendo las reglas de ordenación de cadenas.
+
+Por ejemplo, si tienes una lista de precios como "5", "16", "21", etc., el ordenamiento por defecto colocará "16" antes de "5" porque "1" es menor que "5" en términos de ordenación de cadenas.
+
+Es importante tener en cuenta este comportamiento predeterminado y, si es necesario, especificar explícitamente el tipo de datos adecuado en el atributo `data-type` de `<xsl:sort>` para garantizar un ordenamiento correcto, especialmente cuando se trabaja con valores numéricos.
+
+c) ¿para qué sirve case-order?
+
+El atributo `case-order` en XSLT se utiliza para especificar cómo se debe realizar la ordenación de las letras mayúsculas y minúsculas en un ordenamiento alfabético. Este atributo es especialmente útil cuando se trabaja con idiomas que tienen distinciones entre mayúsculas y minúsculas.
+
+El valor de `case-order` puede ser uno de los siguientes:
+
+- `upper-first`: Indica que las letras mayúsculas se ordenarán antes que las minúsculas. Por ejemplo, las letras "A", "B", "C" se ordenarán antes que "a", "b", "c".
+  
+- `lower-first`: Indica que las letras minúsculas se ordenarán antes que las mayúsculas. Por ejemplo, las letras "a", "b", "c" se ordenarán antes que "A", "B", "C".
+
+Este atributo es útil para controlar el comportamiento de la ordenación alfabética en contextos donde se necesite tener en cuenta la distinción entre mayúsculas y minúsculas. Sin embargo, su uso es opcional y, en muchos casos, puede no ser necesario si la distinción entre mayúsculas y minúsculas no es relevante para la ordenación.
+
+4. Filtra para los que cumplen una condición.
+Muestra los vinos más caros de 9 €.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #338DFF;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Vinos más caros que 9€</h2>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+      </tr>
+      <xsl:apply-templates select="viños/viño[prezo &gt; 9]">
+        <xsl:sort select="prezo" data-type="number" order="descending"/>
+      </xsl:apply-templates>
+    </table>
+  </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <tr>
+    <td><xsl:value-of select="nome"/></td>
+    <td><xsl:value-of select="prezo"/></td>
+  </tr>
+</xsl:template>
+
+</xsl:stylesheet>
+
+Pista. if
+5. Filtra para múltiples condiciones.
+Muestra en verde los vinos más baratos de 10€; en rojo los más caros de 30€. El resto sin destacar.
+
+Pista. Choose
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+  <head>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+      th, td {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      th {
+        background-color: #338DFF;
+      }
+      .verde {
+        color: green;
+      }
+      .rojo {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Vinos</h2>
+    <table>
+      <tr>
+        <th>Nombre</th>
+        <th>Precio</th>
+      </tr>
+      <xsl:apply-templates select="viños/viño">
+        <xsl:sort select="prezo" data-type="number" order="ascending"/>
+      </xsl:apply-templates>
+    </table>
+  </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <xsl:variable name="precio" select="number(prezo)" />
+  <xsl:variable name="clase">
+    <xsl:choose>
+      <xsl:when test="$precio &lt;= 10">verde</xsl:when>
+      <xsl:when test="$precio &gt;= 30">rojo</xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <tr>
+    <td>
+      <xsl:if test="$clase">
+        <span class="{$clase}">
+          <xsl:value-of select="nome"/>
+        </span>
+      </xsl:if>
+      <xsl:if test="not($clase)">
+        <xsl:value-of select="nome"/>
+      </xsl:if>
+    </td>
+    <td>
+      <xsl:if test="$clase">
+        <span class="{$clase}">
+          <xsl:value-of select="prezo"/>
+        </span>
+      </xsl:if>
+      <xsl:if test="not($clase)">
+        <xsl:value-of select="prezo"/>
+      </xsl:if>
+    </td>
+  </tr>
+</xsl:template>
+
+</xsl:stylesheet>
+  
+        
+        6. Con plantillas
+Muestra los vinos así:
+Para ello selecciona un conjunto de nodos del documento de entrada e instruye al procesador para aplicar las plantillas indicadas. Pista. apply-templates
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+<xsl:template match="/">
+  <html>
+  <head>
+    <style>
+      .negro {
+        color: black;
+      }
+      .rojo {
+        color: red;
+      }
+      .verde {
+        color: green;
+      }
+      .centrado {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h2 class="left"><span class="negro">Os meus viños</span></h2>
+    <xsl:apply-templates select="viños/viño"/>
+  </body>
+  </html>
+</xsl:template>
+
+<xsl:template match="viño">
+  <p>
+    <span class="negro">Nome:</span> <span class="rojo"><xsl:value-of select="nome"/></span><br/>
+    <span class="negro">Prezo:</span> <span class="verde"><xsl:value-of select="prezo"/></span>
+  </p>
+</xsl:template>
+
+</xsl:stylesheet>
+
+      
