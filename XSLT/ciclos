@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ies nombre="IES Abastos" web="http://www.iesabastos.org/" >
+  <ciclos>
+    <ciclo id="ASIR">
+      <nombre>Administración de Sistemas Informáticos en Red</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo año="2009" />
+    </ciclo>
+    <ciclo id="DAW">
+      <nombre>Desarrollo de Aplicaciones Web</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo año="2010" />
+    </ciclo>
+    <ciclo id="SMR">
+      <nombre>Sistemas Microinformáticos y Redes</nombre>
+      <grado>Medio</grado>
+      <decretoTitulo año="2008" />
+    </ciclo>
+  </ciclos>
+</ies>
+
+
+7.1 Sin etiquetas
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match="/">
+    <html>
+      <head>
+        <title>Programas ofrecidos por IES Abastos</title>
+      </head>
+      <body>
+        <h1>Programas ofrecidos por IES Abastos</h1>
+        <xsl:for-each select="ies/ciclos/ciclo">
+          <xsl:value-of select="nombre"/>
+          <br/>
+        </xsl:for-each>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>
+
+7.2 Con párrafos
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match="/">
+    <html>
+      <head>
+        <title>Programas ofrecidos por IES Abastos</title>
+      </head>
+      <body>
+        <h1>Programas ofrecidos por IES Abastos</h1>
+        <xsl:for-each select="ies/ciclos/ciclo">
+          <p><xsl:value-of select="nombre"/></p>
+        </xsl:for-each>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>
+
+
+7.3 Con lista
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match="/">
+    <html>
+      <head>
+        <title>Programas ofrecidos por IES Abastos</title>
+      </head>
+      <body>
+        <h1>Programas ofrecidos por IES Abastos</h1>
+        <ul>
+          <xsl:for-each select="ies/ciclos/ciclo">
+            <li><xsl:value-of select="nombre"/></li>
+          </xsl:for-each>
+        </ul>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>
+
+7.4 Con tabla
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+  <xsl:template match="/">
+    <html>
+      <head>
+        <title>Programas ofrecidos por IES Abastos</title>
+      </head>
+      <body>
+        <h1>Programas ofrecidos por IES Abastos</h1>
+        <table border="1">
+          <tr>
+            <th>Nombre</th>
+          </tr>
+          <xsl:for-each select="ies/ciclos/ciclo">
+            <tr>
+              <td><xsl:value-of select="nombre"/></td>
+            </tr>
+          </xsl:for-each>
+        </table>
+      </body>
+    </html>
+  </xsl:template>
+</xsl:stylesheet>
