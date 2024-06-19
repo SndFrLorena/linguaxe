@@ -1,0 +1,420 @@
+1. ¿Qué significa HTML?
+
+ HyperText Markup Language
+
+--------------------------
+
+2. ¿Qué etiqueta se utiliza para crear un enlace en HTML?
+
+Para crear un enlace en HTML se utiliza la etiqueta <a>. Esta etiqueta requiere el atributo href para especificar la URL a la que se quiere enlazar.
+
+<a href="https://www.ejemplo.com">Visitar Ejemplo</a>
+
+------------------------
+
+3. ¿Cuál es la estructura básica de un documento HTML5?
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Título del Documento</title>
+</head>
+<body>
+    <!-- Contenido de la página -->
+</body>
+</html>
+
+Desglose de la estructura:
+
+1.<!DOCTYPE html>: Declara el tipo de documento como HTML5.
+
+2.<html lang="es">: Inicia el documento HTML y establece el idioma a español.
+
+3.<head>: Contiene meta-información sobre el documento.
+
+<meta charset="UTF-8">: Especifica la codificación de caracteres como UTF-8.
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">: Configura la vista para que sea responsiva en dispositivos móviles.
+
+<title>: Establece el título del documento que se muestra en la pestaña del navegador.
+
+4.<body>: Contiene el contenido visible de la página web.
+
+
+----------------------------------------------------------
+
+
+4. ¿Qué atributo se utiliza para especificar una imagen alternativa si la imagen no se puede mostrar?
+
+
+El atributo que se utiliza para especificar una imagen alternativa si la imagen no se puede mostrar es el atributo alt. Este atributo proporciona una descripción del contenido de la imagen, que se muestra en su lugar si la imagen no se puede cargar.
+
+
+<img src="imagen.jpg" alt="Descripción alternativa de la imagen">
+
+----------------------------------------------------------
+
+5. ¿Cuál es la etiqueta correcta para insertar una línea horizontal en HTML?
+
+
+La etiqueta correcta para insertar una línea horizontal en HTML es <hr>. Esta etiqueta no requiere una etiqueta de cierre.
+
+<p>Este es un párrafo.</p>
+<hr>
+<p>Este es otro párrafo después de la línea horizontal.</p>
+
+
+----------------------------------------------------------
+
+6. ¿Qué etiqueta se utiliza para definir un encabezado grande?
+
+
+La etiqueta que se utiliza para definir un encabezado grande en HTML es <h1> (heading level 1). Este elemento se utiliza para los encabezados más importantes y suele tener el tamaño de fuente más grande entre los encabezados disponibles en HTML.
+
+
+<h1>Este es un encabezado grande</h1>
+
+
+Puedes usar también <h2>, <h3>, <h4>, <h5>, y <h6> para encabezados de menor tamaño, donde <h2> es el siguiente en tamaño después de <h1>, y así sucesivamente.
+
+----------------------------------------------------------
+
+
+7. ¿Cuál es el elemento correcto para reproducir un video en HTML5?
+
+
+
+El elemento correcto para reproducir un video en HTML5 es <video>. Este elemento permite incorporar y reproducir videos directamente en una página web sin necesidad de plugins externos como Flash.
+
+<video controls>
+  <source src="video.mp4" type="video/mp4">
+  Tu navegador no soporta el elemento de video.
+</video>
+
+*La etiqueta <video> inicia el elemento de video.
+
+*El atributo controls agrega controles de reproducción estándar (reproducir, pausar, volumen, etc.).
+
+*<source> especifica la ubicación y el tipo del archivo de video. Puedes incluir múltiples fuentes para diferentes formatos de video para asegurar la compatibilidad con varios navegadores.
+
+*El texto "Tu navegador no soporta el elemento de video." se mostrará si el navegador del usuario no puede reproducir el video.
+
+
+------------------------------------------------------------
+
+8. ¿Qué etiqueta HTML5 se utiliza para definir el pie de página de un documento o una sección?
+
+La etiqueta HTML5 que se utiliza para definir el pie de página de un documento o una sección es <footer>. Esta etiqueta se utiliza para agrupar contenido relacionado con información de copyright, enlaces de navegación secundarios, información de contacto, o cualquier otra información relevante que pertenezca al pie de página de un documento o sección específica.
+
+
+<footer>
+    <p>&copy; 2024 Mi Empresa | Todos los derechos reservados.</p>
+    <nav>
+        <ul>
+            <li><a href="/inicio">Inicio</a></li>
+            <li><a href="/servicios">Servicios</a></li>
+            <li><a href="/contacto">Contacto</a></li>
+        </ul>
+    </nav>
+</footer>
+
+En este ejemplo, <footer> contiene un párrafo con información de copyright y un <nav> con enlaces de navegación.
+
+-----------------------------------------------------------
+
+9.¿Cuál de las siguientes es una etiqueta semántica en HTML5?
+
+En HTML5, las etiquetas semánticas son aquellas que proporcionan significado y estructura al contenido, facilitando tanto a los desarrolladores como a los navegadores comprender el propósito de cada parte de la página web. Entre las opciones que generalmente se consideran etiquetas semánticas en HTML5 se encuentran:
+
+<header>
+<article>
+<section>
+<footer>
+
+De las opciones proporcionadas, todas son etiquetas semánticas en HTML5. Cada una de ellas se utiliza para estructurar el contenido de manera que sea más accesible para los usuarios y para los motores de búsqueda.
+
+--------------------------------------------------------
+
+10.  ¿Cuál es la etiqueta HTML correcta para definir texto importante?
+
+La etiqueta HTML correcta para definir texto importante es <strong>. Esta etiqueta se utiliza para indicar que el texto contenido dentro de ella es importante en términos de significado, sin implicar necesariamente que debe mostrarse en negrita (aunque generalmente se muestra así por los navegadores).
+
+
+<p>Este es un párrafo con texto <strong>importante</strong>.</p>
+
+
+El texto "importante" dentro de <strong> se considera significativo y se puede presentar en negrita por los navegadores por defecto.
+
+------------------------------------------------------
+
+11. ¿Qué significa XML?
+
+
+XML significa "eXtensible Markup Language" (Lenguaje de Marcado Extensible). Es un lenguaje de marcado que define reglas para la codificación de documentos de manera que sean legibles tanto para humanos como para máquinas. XML se utiliza principalmente para almacenar y transportar datos de manera estructurada, permitiendo que diferentes sistemas informáticos puedan intercambiar información de manera eficiente y sin ambigüedades.
+
+-----------------------------------------------------
+
+12. ¿Cuál es la diferencia principal entre un documento XML bien formado y uno válido?
+
+En resumen, un documento XML bien formado es aquel que sigue las reglas básicas de sintaxis XML, mientras que un documento XML válido no solo está bien formado, sino que también cumple con las reglas adicionales especificadas en una DTD o un esquema XML específico.
+
+--------------------------------------------------
+
+13. ¿Cuál de los siguientes NO es un lenguaje de marcas?
+
+JAVA
+
+----------------------------------------------
+
+14. ¿Cuál es la sintaxis correcta para seleccionar todos los elementos `<book>` en un documento XML utilizando XPath?
+
+
+//book
+
+Explicación:
+
+(*)//: Representa una búsqueda recursiva que comienza desde el nodo raíz del documento XML.
+
+(*)book: Especifica el nombre del elemento que se desea seleccionar.
+
+
+En XPath, //book seleccionará todos los elementos <book> sin importar su ubicación dentro del documento XML. Si deseas seleccionar elementos <book> específicos bajo un contexto particular, puedes ajustar la expresión XPath según la estructura y ubicación del elemento en tu documento XML.
+
+-----------------------------------------------------
+
+
+15. ¿Qué operador XPath se utiliza para seleccionar nodos que están en un nivel específico del documento?
+
+El operador XPath que se utiliza para seleccionar nodos que están en un nivel específico del documento es el operador de barra inclinada (/).
+
+Explicación:
+
+(*) /: El operador de barra inclinada se utiliza para seleccionar nodos que son hijos directos del nodo actual en el documento XML.
+
+(*)Por ejemplo, si tienes una estructura XML como esta:
+
+
+<libreria>
+    <seccion>
+        <libro>Libro 1</libro>
+        <libro>Libro 2</libro>
+    </seccion>
+    <seccion>
+        <libro>Libro 3</libro>
+        <libro>Libro 4</libro>
+    </seccion>
+</libreria>
+
+
+Para seleccionar todas las <seccion> dentro de <libreria>, usarías /libreria/seccion.
+
+
+----------------------------------------------------------
+
+16. ¿Qué es XML Schema?
+
+La respuesta correcta es:
+
+b) Un lenguaje para definir la estructura, el contenido y los tipos de datos de documentos XML.
+
+**XML Schema** es un lenguaje de definición utilizado para describir y validar la estructura, el contenido y los tipos de datos permitidos en documentos XML. Proporciona un medio para especificar esquemas que determinan qué elementos y atributos son válidos en un documento XML, así como las restricciones sobre su estructura y contenido. Esto asegura que los documentos XML cumplen con las reglas específicas definidas en el esquema XML, lo que facilita la interoperabilidad entre diferentes sistemas que intercambian datos en formato XML.
+
+--------------------------------------------------------------
+
+
+17. ¿Cuál es la función principal de XQuery?
+
+La función principal de XQuery es realizar consultas y extracciones de datos complejas sobre documentos XML. Es un lenguaje de consulta diseñado específicamente para interactuar con datos estructurados en formato XML, permitiendo realizar operaciones como:
+
+Selección de Datos: Permite seleccionar conjuntos de datos específicos dentro de documentos XML basados en condiciones y criterios definidos.
+
+Transformación de Datos: Facilita la transformación de datos XML de un formato a otro mediante consultas y manipulación de los elementos y atributos del documento XML.
+
+Actualización de Datos: Permite modificar datos en documentos XML mediante operaciones de inserción, actualización y eliminación.
+
+Unión y Agregación: Permite combinar datos de múltiples fuentes XML, así como realizar operaciones de agregación como sumas y conteos sobre conjuntos de datos XML.
+
+Creación de Documentos XML: Permite generar nuevos documentos XML o fragmentos XML basados en los resultados de consultas y transformaciones.
+
+
+-------------------------------------------------------------
+
+
+18. ¿Qué significa XSLT?
+
+
+XSLT significa eXtensible Stylesheet Language Transformations (Transformaciones de Lenguaje de Hojas de Estilo Extensible). Es un lenguaje de transformación utilizado para convertir documentos XML en otros formatos, como HTML, XML o texto plano. XSLT opera mediante la definición de reglas que especifican cómo los elementos y atributos del documento XML de entrada deben ser transformados en el documento de salida deseado.
+
+-----------------------------------------------------
+
+19. ¿Cuál de las siguientes afirmaciones es verdadera acerca de XSLT?
+
+
+
+La afirmación verdadera acerca de XSLT es:
+
+b) XSLT se utiliza para transformar documentos XML en otros formatos.
+
+
+--------------------------------------------------------
+
+
+20. ¿Cuál es el propósito del elemento `<xsl:template>` en XSLT?
+
+La respuesta correcta es:
+
+a) Definir un patrón de correspondencia para elementos XML.
+
+El elemento <xsl:template> en XSLT se utiliza para definir plantillas que especifican cómo se debe procesar y transformar un conjunto específico de nodos en un documento XML de entrada. Estas plantillas pueden ser invocadas y aplicadas repetidamente durante el proceso de transformación XML a través de reglas de coincidencia y aplicaciones de plantillas.
+
+
+
+Propósito del <xsl:template>:
+
+1.Definición de Plantillas Reutilizables: Permite definir estructuras de procesamiento que se pueden aplicar a diferentes partes del documento XML de entrada. Estas plantillas encapsulan reglas y transformaciones específicas que se deben aplicar a nodos específicos.
+
+2.Estructura de Transformación: Define cómo deben ser transformados los elementos y atributos del documento XML de entrada en el documento de salida deseado. Las plantillas pueden incluir instrucciones para copiar, filtrar, ordenar, modificar y combinar datos XML según sea necesario.
+
+3.Gestión de Recursión y Modularidad: Facilita la creación de transformaciones complejas al permitir la modularidad y la reutilización de código. Las plantillas pueden invocarse recursivamente o como parte de otras plantillas, lo que simplifica la implementación de lógica de transformación compleja.
+
+
+<!-- Ejemplo de definición de una plantilla con xsl:template -->
+<xsl:template match="libro">
+  <div class="libro">
+    <h2><xsl:value-of select="titulo"/></h2>
+    <p>Autor: <xsl:value-of select="autor"/></p>
+  </div>
+</xsl:template>
+
+En este ejemplo:
+
+(*)<xsl:template match="libro"> define una plantilla que coincide con todos los elementos <libro> en el documento XML de entrada.
+
+(*)El contenido dentro de la plantilla define cómo se debe transformar cada <libro> en un <div> con título y autor.
+
+En resumen, <xsl:template> es fundamental en XSLT para definir la estructura y el comportamiento de la transformación XML, permitiendo modularidad, reutilización y una estructura clara de cómo los datos XML deben ser procesados y presentados en el documento de salida.
+
+
+-----------------------------------------------------------
+
+21. ¿Qué significa ERP?
+
+ERP significa Enterprise Resource Planning, que en español se traduce como Planificación de Recursos Empresariales. Es un término que se refiere a sistemas de gestión empresarial que integran y manejan de manera integral y en tiempo real, la mayoría de las actividades y procesos de negocio de una organización. Estos sistemas están diseñados para automatizar y facilitar el flujo de información dentro de una organización, abarcando áreas como finanzas, contabilidad, recursos humanos, inventario, producción, ventas, compras, y más.
+
+--------------------------------------------------------------
+
+22. ¿Cuál de las siguientes afirmaciones describe mejor un sistema CRM?
+
+La afirmación que describe mejor un sistema CRM es:
+
+b) Un sistema que ayuda a gestionar las relaciones con los clientes.
+
+
+Explicación:
+
+a) Un sistema utilizado para gestionar las finanzas de la empresa: Esta afirmación describe un sistema ERP (Enterprise Resource Planning), no un sistema CRM (Customer Relationship Management). Los sistemas ERP están diseñados para integrar y gestionar procesos empresariales como finanzas, contabilidad, recursos humanos, etc.
+
+b) Un sistema que ayuda a gestionar las relaciones con los clientes: Esta es la definición principal de un sistema CRM (Customer Relationship Management). Los sistemas CRM están diseñados para administrar y mejorar las relaciones con los clientes, mediante la gestión de interacciones, el seguimiento de actividades y la centralización de la información relevante sobre clientes y prospectos.
+
+c) Un sistema para la planificación de recursos empresariales: Esta afirmación describe nuevamente un sistema ERP, no un CRM.
+
+d) Un sistema que automatiza las tareas de producción: Esta descripción podría aplicarse a sistemas de automatización de producción o sistemas MES (Manufacturing Execution Systems), pero no a un CRM.
+
+Por lo tanto, la respuesta correcta es la opción b): Un sistema que ayuda a gestionar las relaciones con los clientes.
+
+-------------------------------------------------------------
+
+23. ¿Cuál es uno de los principales beneficios de implementar un ERP?
+
+El principal beneficio de implementar un ERP es:
+
+c) Integra diversos procesos empresariales en una única plataforma.
+
+
+-------------------------------------------------------------
+
+25. ¿Cuál es la principal función de un sistema CRM?
+
+La principal función de un sistema CRM (Customer Relationship Management) es:
+
+c) Facilitar la gestión de relaciones con los clientes y prospectos.
+
+------------------------------------------------------------------
+
+Múltiple elección (0,33 correctas, -0,1 falladas)
+
+1. ¿Cuál de los siguientes son sistemas ERP de software libre?
+a) Dollibar				b) Odoo
+c) Microsoft Dynamics 365		d) SAP S/4HANA Cloud
+
+
+Los sistemas ERP de software libre de la lista proporcionada son:
+
+a) Dollibar
+b) Odoo
+
+Explicación:
+
+Dollibar: Es un ERP de código abierto y software libre diseñado para pequeñas y medianas empresas. Ofrece funcionalidades como gestión de clientes, ventas, compras, inventario, contabilidad y más.
+
+Odoo: También conocido como OpenERP, es un ERP de código abierto y software libre que ofrece una amplia gama de módulos para gestionar diversos aspectos empresariales como ventas, compras, inventario, recursos humanos, contabilidad, entre otros.
+
+Microsoft Dynamics 365 y SAP S/4HANA Cloud: Estos son sistemas ERP comerciales desarrollados por grandes empresas y no son de código abierto ni software libre.
+
+Por lo tanto, las respuestas correctas son a) Dollibar y b) Odoo.
+
+------------------------------------------------------------------
+
+2. ¿Cuál de los siguientes son sistemas CRM de sofware libre?
+a) vTiger				b) Salesforce
+c) CiviCRM				d) holded
+
+Los sistemas CRM de software libre de la lista proporcionada son:
+
+a) vTiger
+c) CiviCRM
+
+Explicación:
+
+vTiger: Es un sistema CRM de código abierto y software libre diseñado para pequeñas y medianas empresas. Ofrece funcionalidades como gestión de contactos, gestión de ventas, soporte al cliente, automatización de marketing, entre otros.
+
+CiviCRM: También es un sistema CRM de código abierto y software libre, enfocado principalmente en organizaciones sin ánimo de lucro, asociaciones y entidades gubernamentales. Ofrece funcionalidades de gestión de contactos, donaciones, eventos, campañas de marketing, entre otros.
+
+Salesforce y holded: Estos son sistemas CRM comerciales y no son de código abierto ni software libre.
+
+Por lo tanto, las respuestas correctas son a) vTiger y c) CiviCRM.
+
+-----------------------------------------------------------------------
+
+3. ¿Cuál de las siguientes tecnologías permite validar un documento XML?
+a) DTD				b) XML Schema
+c) Xquery				d) XSLT
+
+La tecnología que permite validar un documento XML entre las opciones proporcionadas es:
+
+b) XML Schema
+
+--------------------------------------------------------------------
+
+Rellena el hueco (0,3 correctas)
+
+La etiqueta HTML que abre una lista sin orden es _______<ul>
+
+----------------------------------
+
+La etiqueta HTML que añade un item a una lista ordenada o sin orden es ______<li>
+
+-------------------------------
+
+La etiqueta HTML que permite poner encabezados a una tabla es ________<th>
+
+------------------------------
+
+La etiqueta HTML que permite añadir una imagen es __________<img>
+
+------------------------------
+
+La etiqueta HTML que abre comentario es _____ <!-- y la que lo cierra es _____ -->
+
