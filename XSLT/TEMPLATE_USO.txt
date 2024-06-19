@@ -1,0 +1,142 @@
+GUIA DE USO TEMPLATE EN UN DOC XSLT: 
+
+Utilizar templates en XSLT es fundamental para estructurar y definir cómo se va a transformar un documento XML en otro formato, típicamente HTML, pero también puede ser XML u otros formatos de texto. Aquí te dejo una guía paso a paso sobre cómo usar templates en XSLT:
+
+-----------------
+
+1. Definición de la Hoja de Estilo XSLT
+Todo documento XSLT comienza con la definición de la hoja de estilo, donde se especifica el espacio de nombres y la versión de XSLT que se va a utilizar. Por ejemplo:
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <!-- Definición de la hoja de estilo XSLT -->
+  
+  <!-- Aquí van los templates -->
+  
+</xsl:stylesheet>
+
+-----------------
+
+2. Definición de Templates
+Los templates en XSLT se definen con la etiqueta <xsl:template> y se utilizan para especificar cómo se va a procesar cada parte del documento XML de entrada. La estructura básica de un template es la siguiente:
+
+<xsl:template match="nombre_del_elemento">
+  <!-- Código XSLT para transformar el contenido -->
+</xsl:template>
+
+(*)match="nombre_del_elemento": Especifica el patrón de coincidencia que indica qué elementos del documento XML de entrada va a procesar este template. Puede ser un nombre de elemento específico, una expresión XPath más compleja, o simplemente "/" para el elemento raíz.
+
+-----------------
+
+3. Utilización de <xsl:value-of>
+Dentro de un template, <xsl:value-of> se utiliza para extraer y mostrar el contenido de los nodos XML dentro del documento de salida (por lo general, HTML):
+
+<xsl:value-of select="nombre_del_nodo"/>
+
+---------------
+
+4. Iteración con <xsl:for-each>
+Para procesar varios elementos de una lista o colección dentro del XML de entrada, se utiliza <xsl:for-each>:
+
+<xsl:for-each select="nombre_del_elemento">
+  <!-- Código XSLT para cada iteración -->
+</xsl:for-each>
+
+--------------
+
+5. Ordenación con <xsl:sort>
+Si es necesario ordenar los elementos antes de procesarlos, se puede usar <xsl:sort> dentro de <xsl:for-each>:
+
+<xsl:for-each select="nombre_del_elemento">
+  <xsl:sort select="nombre_del_campo"/>
+  <!-- Código XSLT para cada iteración -->
+</xsl:for-each>
+
+-------------
+
+
+6. Estructura del Documento de Salida (HTML)
+Dentro de los templates, se crea la estructura del documento de salida (generalmente HTML), utilizando etiquetas HTML y elementos XSLT según sea necesario:
+
+
+
+<xsl:template match="/">
+  <html>
+    <head>
+      <title>Documento HTML generado desde XML con XSLT</title>
+    </head>
+    <body>
+      <!-- Contenido generado dinámicamente -->
+    </body>
+  </html>
+</xsl:template>
+
+
+--------------
+
+7. Inclusión de Otros Templates
+Es posible utilizar múltiples templates dentro de la misma hoja de estilo XSLT para manejar diferentes partes del documento XML. Esto permite modularizar y reutilizar código:
+
+
+<xsl:template match="...">
+  <!-- Código para otro tipo de nodo XML -->
+</xsl:template>
+
+-------------
+
+8. Variables en XSLT
+Se pueden declarar y utilizar variables dentro de un template para almacenar valores temporales o resultados intermedios:
+
+
+<xsl:variable name="miVariable" select="expresion_XPath"/>
+<xsl:value-of select="$miVariable"/>
+
+--------------
+
+9. Transformación y Procesamiento
+Para aplicar la transformación XSLT, se necesita un procesador XSLT adecuado, que puede ser una función incorporada en lenguajes de programación como Java, C#, PHP, o mediante herramientas específicas como Saxon o Xalan.
+
+Ejemplo Completo
+A continuación, un ejemplo completo de cómo podría lucir una hoja de estilo XSLT básica:
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  
+  <!-- Template para el elemento raíz -->
+  <xsl:template match="/">
+    <html>
+      <head>
+        <title>Transformación XML a HTML con XSLT</title>
+      </head>
+      <body>
+        <h1>Lista de libros</h1>
+        
+        <!-- Iteración sobre cada libro -->
+        <xsl:for-each select="biblioteca/libro">
+          <h2><xsl:value-of select="titulo"/></h2>
+          <p>Autor: <xsl:value-of select="autor"/></p>
+          <p>Precio: <xsl:value-of select="precio"/></p>
+        </xsl:for-each>
+        
+      </body>
+    </html>
+  </xsl:template>
+  
+</xsl:stylesheet>
+
+
+En este ejemplo, el XSLT transforma un documento XML que contiene una lista de libros (biblioteca/libro) en un documento HTML con títulos de libro, autores y precios listados. Este es un uso básico de templates y estructuras XSLT para transformaciones simples.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
