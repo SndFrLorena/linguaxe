@@ -1,0 +1,563 @@
+VIÑOS XML:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="file:06.xslt"?>
+<viños>
+  <viño DO="Rioja">
+    <nome>Marqués de Murrieta</nome>
+    <tipo>Reserva</tipo>
+    <prezo>16</prezo>
+  </viño>
+  <viño DO="Ribera del Duero">
+    <nome>Loes Collection</nome>
+    <tipo>Reserva</tipo>
+    <prezo>34</prezo>
+  </viño>
+  <viño DO="Ribera del Guadiana">
+    <nome>Acilates 2013</nome>
+    <tipo>Reserva</tipo>
+    <prezo>15</prezo>
+  </viño>
+  <viño DO="Rioja">
+    <nome>Faustino</nome>
+    <tipo>Crianza</tipo>
+    <prezo>5</prezo>
+  </viño>
+  <viño DO="Ribera del Duero">
+    <nome>Rolland Galarreta</nome>
+    <tipo>Crianza</tipo>
+    <prezo>16</prezo>
+  </viño>
+  <viño DO="Ribera del Guadiana">
+    <nome>Palacio Quemado Primicia</nome>
+    <tipo>Crianza</tipo>
+    <prezo>6</prezo>
+  </viño>
+  <viño DO="Rioja">
+    <nome>Castillo Ygay 1986</nome>
+    <tipo> Gran Reserva</tipo>
+    <prezo>495</prezo>
+  </viño>
+  <viño DO="Ribera del Duero">
+    <nome>Alonso del Yerro 2012</nome>
+    <tipo>Crianza</tipo>
+    <prezo>21</prezo>
+  </viño>
+  <viño DO="Ribera del Guadiana">
+    <nome>Palacio Quemado Reserva 2011</nome>
+    <tipo>Reserva</tipo>
+    <prezo>9</prezo>
+  </viño>
+  <viño DO="Rioja">
+    <nome>Barón de Ley 2011</nome>
+    <tipo>Reserva</tipo>
+    <prezo>9</prezo>
+  </viño>
+  <viño DO="Ribera del Duero">
+    <nome>Corral del Obispo</nome>
+    <tipo>Crianza</tipo>
+    <prezo>8</prezo>
+  </viño>
+  <viño DO="Ribera del Guadiana">
+    <nome>Carabal Macareno 2007 Magnum 1'5L</nome>
+    <tipo>Crianza</tipo>
+    <prezo>32</prezo>
+  </viño>
+  <viño DO="Ribera del Guadiana">
+    <nome>Jaloco</nome>
+    <tipo>Gran Reserva</tipo>
+    <prezo>***</prezo>
+  </viño>
+</viños>
+
+----------------------------------------------
+
+1. Muestra el primer valor
+Muestra el nombre y el precio del primer vino.
+
+Pista. value-of
+
+SOLUCION: 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+  <!-- Plantilla raíz -->
+  <xsl:template match="/viños">
+    <html>
+      <head>
+        <title>Nombre y Precio del Primer Vino</title>
+        <style>
+          table {
+            width: 50%;
+            border-collapse: collapse;
+            margin-top: 20px;
+          }
+          th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Nombre y Precio del Primer Vino</h1>
+        
+        <!-- Inicio de la tabla -->
+        <table>
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+          </tr>
+          
+          <!-- Aplicar plantilla solo para el primer viño -->
+          <xsl:apply-templates select="viño[1]"/>
+          
+        </table>
+        <!-- Fin de la tabla -->
+        
+      </body>
+    </html>
+  </xsl:template>
+  
+  <!-- Plantilla para mostrar nombre y precio del viño -->
+  <xsl:template match="viño">
+    <tr>
+      <td><xsl:value-of select="nome"/></td>
+      <td><xsl:value-of select="prezo"/></td>
+    </tr>
+  </xsl:template>
+  
+</xsl:stylesheet>
+
+Explicación:
+
+(*)xsl:template match="/viños": Este es el template principal que coincide con el elemento raíz <viños> del XML. Aquí se define la estructura básica del documento HTML de salida.
+
+(*)Tabla HTML: Se define una tabla para mostrar el nombre y el precio del primer viño.
+
+(*)xsl:apply-templates select="viño[1]": Se aplica la plantilla solo al primer viño encontrado (viño[1]). Esto asegura que solo se procese el primer viño del XML.
+
+(*)Plantilla viño: Define cómo se va a mostrar cada viño en la tabla HTML. Utiliza <xsl:value-of select="..." /> para extraer y mostrar el contenido de los elementos XML (nome y prezo).
+
+-----------------------------------------------
+
+
+2. Muestra todos los valores
+Muestra para todos los vinos el nombre y el precio.
+
+Pista. for-each
+
+SOLUCIÓN:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+  <!-- Plantilla raíz -->
+  <xsl:template match="/viños">
+    <html>
+      <head>
+        <title>Nombre y Precio de Todos los Vinos</title>
+        <style>
+          table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+          }
+          th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Nombre y Precio de Todos los Vinos</h1>
+        
+        <!-- Inicio de la tabla -->
+        <table>
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+          </tr>
+          
+          <!-- Aplicar plantilla a todos los viños -->
+          <xsl:for-each select="viño">
+            <tr>
+              <td><xsl:value-of select="nome"/></td>
+              <td><xsl:value-of select="prezo"/></td>
+            </tr>
+          </xsl:for-each>
+          
+        </table>
+        <!-- Fin de la tabla -->
+        
+      </body>
+    </html>
+  </xsl:template>
+  
+</xsl:stylesheet>
+
+Explicación:
+
+(*)xsl:template match="/viños": Este es el template principal que coincide con el elemento raíz <viños> del XML. Define la estructura básica del documento HTML de salida.
+
+(*)Tabla HTML: Se define una tabla para mostrar el nombre y el precio de todos los viños.
+
+(*)xsl:for-each select="viño": Itera sobre todos los elementos <viño> dentro de <viños>. Para cada <viño>, se crea una fila en la tabla HTML.
+
+(*)Plantilla viño: Define cómo se va a mostrar cada viño en la tabla HTML. Utiliza <xsl:value-of select="..." /> para extraer y mostrar el contenido de los elementos XML (nome y prezo).
+
+------------------------------------------------------
+
+
+3. Ordena los valores.
+Ordena los vinos de más caro a más barato.
+
+Pista. sort
+
+
+a) ¿qué pasa si no ponemos el data type? 
+
+Si no se especifica el tipo de dato (number() en este caso), la ordenación se realizará como texto. Esto puede llevar a resultados inesperados cuando se ordenan números, ya que se consideran secuencialmente como cadenas de caracteres.
+
+c) ¿cuál es el orden por defecto?
+
+El orden por defecto es ascendente (order="ascending"), es decir, de menor a mayor valor. Sin embargo, al especificar order="descending", como se hizo en el ejemplo, se cambia el orden a descendente (de mayor a menor valor).
+
+c) ¿para qué sirve case-order?
+
+case-order se usa en contextos donde la ordenación implica letras mayúsculas y minúsculas. Puede ser útil para especificar si las letras mayúsculas y minúsculas deben ordenarse antes o después en relación con las letras del otro caso.
+
+
+SOLUCION: 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+  <!-- Plantilla raíz -->
+  <xsl:template match="/viños">
+    <html>
+      <head>
+        <title>Vinos Ordenados por Precio</title>
+        <style>
+          table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+          }
+          th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Vinos Ordenados por Precio (de más caro a más barato)</h1>
+        
+        <!-- Inicio de la tabla -->
+        <table>
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+          </tr>
+          
+          <!-- Aplicar plantilla a todos los viños, ordenados por precio -->
+          <xsl:for-each select="viño">
+            <!-- Convertir el precio a número para la ordenación -->
+            <xsl:sort select="number(prezo)" data-type="number" order="descending"/>
+            <tr>
+              <td><xsl:value-of select="nome"/></td>
+              <td><xsl:value-of select="prezo"/></td>
+            </tr>
+          </xsl:for-each>
+          
+        </table>
+        <!-- Fin de la tabla -->
+        
+      </body>
+    </html>
+  </xsl:template>
+  
+</xsl:stylesheet>
+
+Explicacion:
+
+(*)<xsl:sort select="number(prezo)" data-type="number" order="descending"/>: Se añadió data-type="number" para asegurar que <prezo> se interprete como un número durante la ordenación. Esto es crucial para que la ordenación numérica funcione correctamente.
+
+(*)Verificación del XML: Antes de aplicar la transformación XSLT, verifica nuevamente que todos los valores dentro de <prezo> en tu archivo XML (06.xml) sean números válidos y estén correctamente formateados. Si hay valores que no son numéricos o están mal formateados, la ordenación no funcionará como se espera.
+
+------------------------------------------------------
+
+4. Filtra para los que cumplen una condición.
+Muestra los vinos más caros de 9 €.
+
+Pista. if
+
+SOLUCIÓN: 
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+  <!-- Plantilla raíz -->
+  <xsl:template match="/viños">
+    <html>
+      <head>
+        <title>Vinos Más Caros de 9 €</title>
+        <style>
+          table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+          }
+          th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+        </style>
+      </head>
+      <body>
+        <h1>Vinos Más Caros de 9 €</h1>
+        
+        <!-- Inicio de la tabla -->
+        <table>
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+          </tr>
+          
+          <!-- Aplicar plantilla a todos los viños que cumplen la condición -->
+          <xsl:for-each select="viño[number(prezo) >= 9]">
+            <!-- Ordenar por precio descendente -->
+            <xsl:sort select="number(prezo)" order="descending"/>
+            <!-- Mostrar solo los viños que cumplen la condición -->
+            <xsl:if test="number(prezo) >= 9">
+              <tr>
+                <td><xsl:value-of select="nome"/></td>
+                <td><xsl:value-of select="prezo"/></td>
+              </tr>
+            </xsl:if>
+          </xsl:for-each>
+          
+        </table>
+        <!-- Fin de la tabla -->
+        
+      </body>
+    </html>
+  </xsl:template>
+  
+</xsl:stylesheet>
+
+Explicación:
+
+(*)<xsl:for-each select="viño[number(prezo) >= 9]">: Esta línea selecciona todos los elementos <viño> del XML donde el valor numérico de <prezo> es mayor o igual a 9. Esto filtra automáticamente los vinos que cumplen la condición de tener un precio de al menos 9 €.
+
+(*)<xsl:if test="number(prezo) >= 9">: Dentro del bucle xsl:for-each, usamos <xsl:if> para verificar nuevamente que el precio del viño sea mayor o igual a 9. Esto garantiza que solo se muestren los vinos que cumplen la condición especificada.
+
+(*)Ordenación: Se mantiene la ordenación descendente por precio dentro del bucle xsl:for-each, utilizando <xsl:sort> para asegurar que los vinos más caros se muestren primero.
+
+
+-----------------------------------------------------------------------
+
+
+5. Filtra para múltiples condiciones.
+Muestra en verde los vinos más baratos de 10€; en rojo los más caros de 30€. El resto sin destacar.
+
+Pista. Choose
+
+SOLUCION:
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+  <!-- Plantilla raíz -->
+  <xsl:template match="/viños">
+    <html>
+      <head>
+        <title>Vinos con Condiciones de Precio</title>
+        <style>
+          .verde { background-color: lightgreen; }
+          .rojo { background-color: salmon; }
+          table { width: 80%; border-collapse: collapse; margin-top: 20px; }
+          th, td { border: 1px solid black; padding: 8px; text-align: left; }
+          th { background-color: #f2f2f2; }
+        </style>
+      </head>
+      <body>
+        <h1>Vinos según Condiciones de Precio</h1>
+        
+        <!-- Inicio de la tabla -->
+        <table>
+          <tr>
+            <th>Nombre</th>
+            <th>Precio</th>
+          </tr>
+          
+          <!-- Aplicar plantilla a todos los viños -->
+          <xsl:for-each select="viño">
+            <!-- Aplicar diferentes estilos según el precio -->
+            <xsl:choose>
+              <!-- Vinos más baratos de 10€ -->
+              <xsl:when test="number(prezo) &lt; 10">
+                <tr class="verde">
+                  <td><xsl:value-of select="nome"/></td>
+                  <td><xsl:value-of select="prezo"/></td>
+                </tr>
+              </xsl:when>
+              <!-- Vinos más caros de 30€ -->
+              <xsl:when test="number(prezo) &gt;= 30">
+                <tr class="rojo">
+                  <td><xsl:value-of select="nome"/></td>
+                  <td><xsl:value-of select="prezo"/></td>
+                </tr>
+              </xsl:when>
+              <!-- Resto de vinos -->
+              <xsl:otherwise>
+                <tr>
+                  <td><xsl:value-of select="nome"/></td>
+                  <td><xsl:value-of select="prezo"/></td>
+                </tr>
+              </xsl:otherwise>
+            </xsl:choose>
+          </xsl:for-each>
+          
+        </table>
+        <!-- Fin de la tabla -->
+        
+      </body>
+    </html>
+  </xsl:template>
+  
+</xsl:stylesheet>
+
+Explicación:
+
+(*)<xsl:choose> y <xsl:when>: Esta estructura permite evaluar múltiples condiciones (xsl:when) y aplicar diferentes acciones según cada condición. En este caso, se utilizan dos condiciones:
+
+(*)<xsl:when test="number(prezo) < 10">: Aplica un estilo de clase verde a los vinos cuyo precio sea menor que 10€, mostrándolos con fondo verde claro.
+
+(*)<xsl:when test="number(prezo) >= 30">: Aplica un estilo de clase rojo a los vinos cuyo precio sea mayor o igual a 30€, mostrándolos con fondo salmon.
+
+(*).verde y .rojo en CSS: Se definen estilos en CSS dentro de la etiqueta <style> para los estilos verde (fondo verde claro) y rojo (fondo salmon).
+
+(*)<xsl:otherwise>: Se utiliza <xsl:otherwise> para los vinos que no cumplen ninguna de las condiciones anteriores, mostrándolos sin ningún estilo especial.
+
+-------------------------------------------------------------
+
+6. Con plantillas
+Muestra los vinos así:
+
+Para ello selecciona un conjunto de nodos del documento de entrada e instruye al procesador para aplicar las plantillas indicadas. Pista. apply-templates
+
+En una tabla muestra como titulo en negrita 'Os meus viños', y en el resto de la tabla en primer lugar aparacera: "Nome:" seguido del <nome>(en color rojo) y en segundo lugar (justo debajo de "Nome:"), se mostrara: "Prezo:" seguido del <prezo>(en color verde). Para ello selecciona un conjunto de nodos del documento de entrada e instruye al procesador para aplicar las plantillas indicadas. Pista. apply-templates
+
+
+SOLUCION:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+
+  <!-- Plantilla raíz -->
+  <xsl:template match="/viños">
+    <html>
+      <head>
+        <title>Mis Vinos</title>
+        <style>
+          table {
+            width: 80%;
+            border-collapse: collapse;
+            margin-top: 20px;
+          }
+          th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+          }
+          th {
+            background-color: #f2f2f2;
+          }
+          .nombre {
+            color: red;
+          }
+          .prezo {
+            color: green;
+          }
+        </style>
+      </head>
+      <body>
+        <!-- Encabezado -->
+        <h1><strong>Os meus viños</strong></h1>
+        
+        <!-- Inicio de la tabla -->
+        <table>
+          <!-- Aplicar plantilla a todos los viños -->
+          <xsl:apply-templates select="viño"/>
+        </table>
+        <!-- Fin de la tabla -->
+        
+      </body>
+    </html>
+  </xsl:template>
+  
+  <!-- Plantilla para cada viño -->
+  <xsl:template match="viño">
+    <tr>
+      <td><strong>Nome:</strong></td>
+      <td class="nombre"><xsl:value-of select="nome"/></td>
+    </tr>
+    <tr>
+      <td><strong>Prezo:</strong></td>
+      <td class="prezo"><xsl:value-of select="prezo"/></td>
+    </tr>
+  </xsl:template>
+  
+</xsl:stylesheet>
+
+
+Explicación:
+
+(*)Encabezado Personalizado (<h1>):
+
+Se utiliza <h1><strong>Os meus viños</strong></h1> para mostrar el título "Os meus viños" en negrita como encabezado principal de la página HTML.
+
+(*)Tabla (<table>):
+
+<table> define una tabla HTML donde se mostrarán los datos de los vinos.
+
+(*)<xsl:apply-templates>:
+
+Dentro de <table>, <xsl:apply-templates select="viño"/> se usa para aplicar la plantilla definida (<xsl:template match="viño">) a cada elemento <viño> en el documento XML.
+
+(*)<xsl:template match="viño">:
+
+-->Esta plantilla define cómo se debe mostrar cada elemento <viño> en la tabla.
+
+--><tr> crea una nueva fila para cada viño.
+
+--><td><strong>Nome:</strong></td> y <td class="nombre"><xsl:value-of select="nome"/></td> muestran el nombre del viño precedido por "Nome:" en negrita y en color rojo.
+
+--><td><strong>Prezo:</strong></td> y <td class="prezo"><xsl:value-of select="prezo"/></td> muestran el precio del viño precedido por "Prezo:" en negrita y en color verde.
+
+(*)Estilos CSS (<style>):
+
+Se define CSS dentro de <style> para estilizar la tabla y los elementos de texto según los requisitos especificados (colores rojo y verde para los nombres y precios, respectivamente).
+
+
+
+
+
