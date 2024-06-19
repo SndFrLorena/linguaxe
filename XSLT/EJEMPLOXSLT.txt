@@ -1,0 +1,129 @@
+Partiendo de este XML:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<musica>
+  <musicos>
+    <musico id="Vivaldi">
+      <nombre>Antonio Vivaldi</nombre>
+      <fechas nacimiento="1678" muerte="1741" />
+      <pais>Italia</pais>
+    </musico>
+    <musico id="Bach">
+      <nombre>Johann Sebastian Bach</nombre>
+      <fechas nacimiento="1685" muerte="1750" />
+      <pais>Alemania</pais>
+    </musico>
+    <musico id="Mozart">
+      <nombre>Wolfgang Amadeus Mozart</nombre>
+      <fechas nacimiento="1756" muerte="1791" />
+      <pais>Austria</pais>
+    </musico>
+    <musico id="Beethoven">
+      <nombre>Ludwig van Beethoven</nombre>
+      <fechas nacimiento="1770" muerte="1827" />
+      <pais>Alemania</pais>
+    </musico>
+    <musico id="Verdi">
+      <nombre>Giuseppe Verdi</nombre>
+      <fechas nacimiento="1813" muerte="1901" />
+      <pais>Italia</pais>
+    </musico>
+  </musicos>
+  <obras>
+    <obra>
+      <autor>Vivaldi</autor>
+      <nombre>Las cuatro estaciones</nombre>
+      <genero nombre="concierto">
+        <instrumento>violín</instrumento>
+        <instrumento>orquesta</instrumento>
+      </genero>
+    </obra>
+    <obra>
+      <autor>Bach</autor>
+      <nombre>Pasión según San Mateo</nombre>
+      <genero nombre="oratorio">
+        <instrumento>tenor</instrumento>
+        <instrumento>barítono</instrumento>
+        <instrumento>bajo</instrumento>
+      </genero>
+    </obra>
+    <obra>
+      <autor>Mozart</autor>
+      <nombre>La flauta mágica</nombre>
+      <genero nombre="ópera">
+        <instrumento>tenor</instrumento>
+        <instrumento>barítono</instrumento>
+        <instrumento>bajo</instrumento>
+      </genero>
+    </obra>
+    <obra>
+      <autor>Mozart</autor>
+      <nombre>Concierto para piano nº 27</nombre>
+      <genero nombre="concierto">
+        <instrumento>piano</instrumento>
+        <instrumento>orquesta</instrumento>
+      </genero>
+    </obra>
+    <obra>
+      <autor>Beethoven</autor>
+      <nombre>Novena sinfonía</nombre>
+      <genero nombre="sinfonía">
+        <instrumento>orquesta</instrumento>
+        <instrumento>coro</instrumento>
+      </genero>
+    </obra>
+    <obra>
+      <autor>Verdi</autor>
+      <nombre>La Traviata</nombre>
+      <genero nombre="ópera">
+        <instrumento>soprano</instrumento>
+        <instrumento>tenor</instrumento>
+      </genero>
+    </obra>
+    <obra>
+      <autor>Beethoven</autor>
+      <nombre>Concierto para piano nº 5</nombre>
+      <genero nombre="concierto">
+        <instrumento>piano</instrumento>
+        <instrumento>orquesta</instrumento>
+      </genero>
+    </obra>
+  </obras>
+</musica>
+
+
+--------------------------------------------------------
+Mostrar información sobre la vida de los compositores en párrafos HTML:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<p>Antonio Vivaldi nació en Italia en 1678.</p>
+<p>Johann Sebastian Bach nació en Alemania en 1685.</p>
+<p>Wolfgang Amadeus Mozart nació en Austria en 1756.</p>
+<p>Ludwig van Beethoven nació en Alemania en 1770.</p>
+<p>Giuseppe Verdi nació en Italia en 1813.</p>
+
+-------------------------------------------------------------
+
+Solución:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+    <xsl:output method="html" encoding="UTF-8" indent="yes"/>
+    
+    <xsl:template match="/">
+        <xsl:apply-templates select="musica/musicos/musico"/>
+    </xsl:template>
+    
+    <xsl:template match="musico">
+        <p>
+            <xsl:value-of select="nombre"/> 
+            nació en 
+            <xsl:value-of select="pais"/> 
+            en 
+            <xsl:value-of select="fechas/@nacimiento"/> 
+            .
+        </p>
+    </xsl:template>
+</xsl:stylesheet>
+
+
