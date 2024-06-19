@@ -1,0 +1,184 @@
+EJERCICIO_CICLOS
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ies nombre="IES Abastos" web="http://www.iesabastos.org/" >
+  <ciclos>
+    <ciclo id="ASIR">
+      <nombre>Administración de Sistemas Informáticos en Red</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo año="2009" />
+    </ciclo>
+    <ciclo id="DAW">
+      <nombre>Desarrollo de Aplicaciones Web</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo año="2010" />
+    </ciclo>
+    <ciclo id="SMR">
+      <nombre>Sistemas Microinformáticos y Redes</nombre>
+      <grado>Medio</grado>
+      <decretoTitulo año="2008" />
+    </ciclo>
+  </ciclos>
+</ies>
+
+1. SIN ETIQUETAS
+
+XSL: ciclos01.xsl
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:template match="ciclos">
+  <html>
+<head>
+<body>
+<xsl:apply-templates select="ciclo"/>
+</body>
+</head>  
+  </html>
+  </xsl:template>
+  
+  <xsl:template match="ciclo">
+  <xsl:value-of select="nombre"/>
+  </xsl:template>
+</xsl:stylesheet>
+
+XML: 
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- ETIQUETA PARA RELACIONAR LOS DOS DOCUMENTOS 
+
+<?xml-stylesheet type="html/xsl" href="ciclos01.xsl"?> 
+
+<ies nombre="IES Abastos" web="http://www.iesabastos.org/" >
+  <ciclos>
+    <ciclo id="ASIR">
+      <nombre>Administración de Sistemas Informáticos en Red</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo año="2009" />
+    </ciclo>
+    <ciclo id="DAW">
+      <nombre>Desarrollo de Aplicaciones Web</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo año="2010" />
+    </ciclo>
+    <ciclo id="SMR">
+      <nombre>Sistemas Microinformáticos y Redes</nombre>
+      <grado>Medio</grado>
+      <decretoTitulo año="2008" />
+    </ciclo>
+  </ciclos>
+</ies>
+
+HTML: 
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+  
+<html>
+  <head>
+    <body>Administración de Sistemas Informáticos en RedDesarrollo de Aplicaciones WebSistemas Microinformáticos y Redes</body>
+  </head>
+</html>
+
+
+------------------
+
+2. CON PARRAFOS
+
+XSL: 
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:template match="ciclos">
+   <html>
+<head>
+<body>
+<xsl:apply-templates select="ciclo"/>
+</body>
+</head>  
+</html>
+  </xsl:template>
+ <xsl:template match="ciclo">
+<p><xsl:value-of select="nombre"/></p>
+  </xsl:template>
+</xsl:stylesheet>
+
+XML:
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="html/xsl" href="ciclos02.xsl"?>
+<ies nombre="IES Abastos" web="http://www.iesabastos.org/" >
+  <ciclos>
+    <ciclo id="ASIR">
+      <nombre>Administración de Sistemas Informáticos en Red</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo año="2009" />
+    </ciclo>
+    <ciclo id="DAW">
+      <nombre>Desarrollo de Aplicaciones Web</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo año="2010" />
+    </ciclo>
+    <ciclo id="SMR">
+      <nombre>Sistemas Microinformáticos y Redes</nombre>
+      <grado>Medio</grado>
+      <decretoTitulo año="2008" />
+    </ciclo>
+  </ciclos>
+</ies>
+
+HTML:
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+  
+<html>
+  <head>
+    <body>
+      <p>Administración de Sistemas Informáticos en Red</p>
+      <p>Desarrollo de Aplicaciones Web</p>
+      <p>Sistemas Microinformáticos y Redes</p>
+    </body>
+  </head>
+</html>
+
+-----------------------------------------------------------
+
+3.LISTA
+
+XSL:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <xsl:template match="ciclos">
+  <html>
+<head>
+<body>
+<xsl:apply-templates select="ciclo"/>
+</body>
+</head>  
+</html>
+  </xsl:template>
+  <xsl:template match="ciclo">
+<li><xsl:value-of select="nombre"/></li>
+  </xsl:template>
+</xsl:stylesheet>
+
+HTML:
+
+?xml version="1.0" encoding="UTF-8"?>
+
+  
+<html>
+  <head>
+    <body>
+      <li>Administración de Sistemas Informáticos en Red</li>
+      <li>Desarrollo de Aplicaciones Web</li>
+      <li>Sistemas Microinformáticos y Redes</li>
+    </body>
+  </head>
+</html>
+
+
+
+
+
