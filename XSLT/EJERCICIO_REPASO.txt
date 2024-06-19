@@ -1,0 +1,168 @@
+partiendo de este XML:
+
+<?xml version="1.0" encoding="UTF-8"?>
+<ies nombre="IES San Clemente" web="https://www.iessanclemente.net/" >
+  <ciclos>
+    <ciclo id="ASIR">
+      <nombre>Administración de Sistemas Informáticos en Red</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo año="2009" />
+    </ciclo>
+    <ciclo id="DAW">
+      <nombre>Desarrollo de Aplicaciones Web</nombre>
+      <grado>Superior</grado>
+      <decretoTitulo año="2010" />
+    </ciclo>
+    <ciclo id="SMR">
+      <nombre>Sistemas Microinformáticos y Redes</nombre>
+      <grado>Medio</grado>
+      <decretoTitulo año="2008" />
+    </ciclo>
+  </ciclos>
+</ies>
+
+--------------------------------------------
+
+Transformación a Texto Simple (Lista)
+Esta transformación XSLT convierte el XML a una lista simple en texto.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Define la plantilla principal -->
+  <xsl:template match="/">
+    <!-- Aplica la plantilla para cada ciclo -->
+    <xsl:apply-templates select="//ciclo"/>
+  </xsl:template>
+
+  <!-- Plantilla para cada ciclo -->
+  <xsl:template match="ciclo">
+    <!-- Salida del ciclo en formato de lista -->
+    <xsl:text>- </xsl:text>
+    <xsl:value-of select="nombre"/>
+    <xsl:text> (Grado: </xsl:text>
+    <xsl:value-of select="grado"/>
+    <xsl:text>, Año: </xsl:text>
+    <xsl:value-of select="decretoTitulo/@año"/>
+    <xsl:text>)&#10;</xsl:text>
+  </xsl:template>
+
+</xsl:stylesheet>
+
+-----------------------------------------------
+
+Transformación a Párrafos
+Esta transformación XSLT convierte el XML a párrafos en HTML.
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Define la plantilla principal -->
+  <xsl:template match="/">
+    <html>
+      <body>
+        <!-- Aplica la plantilla para cada ciclo -->
+        <xsl:apply-templates select="//ciclo"/>
+      </body>
+    </html>
+  </xsl:template>
+
+  <!-- Plantilla para cada ciclo -->
+  <xsl:template match="ciclo">
+    <!-- Salida del ciclo en formato de párrafo -->
+    <p>
+      <xsl:value-of select="nombre"/>
+      <xsl:text> (Grado: </xsl:text>
+      <xsl:value-of select="grado"/>
+      <xsl:text>, Año: </xsl:text>
+      <xsl:value-of select="decretoTitulo/@año"/>
+      <xsl:text>)</xsl:text>
+    </p>
+  </xsl:template>
+
+</xsl:stylesheet>
+
+-----------------------------------------------
+
+Transformación a Tabla HTML
+Esta transformación XSLT convierte el XML a una tabla HTML
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Define la plantilla principal -->
+  <xsl:template match="/">
+    <html>
+      <body>
+        <!-- Encabezado de la tabla -->
+        <table border="1">
+          <tr>
+            <th>Nombre</th>
+            <th>Grado</th>
+            <th>Año</th>
+          </tr>
+          <!-- Aplica la plantilla para cada ciclo -->
+          <xsl:apply-templates select="//ciclo"/>
+        </table>
+      </body>
+    </html>
+  </xsl:template>
+
+  <!-- Plantilla para cada ciclo -->
+  <xsl:template match="ciclo">
+    <tr>
+      <td><xsl:value-of select="nombre"/></td>
+      <td><xsl:value-of select="grado"/></td>
+      <td><xsl:value-of select="decretoTitulo/@año"/></td>
+    </tr>
+  </xsl:template>
+
+</xsl:stylesheet>
+
+----------------------------------------------
+
+Transformación con Ordenación y Filtrado
+Para añadir capacidades de ordenación y filtrado, podemos modificar las plantillas para incluir estos aspectos. Aquí un ejemplo que ordena los ciclos por el año del decreto en orden ascendente y filtra para mostrar solo los ciclos de grado "Superior".
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+  <!-- Define la plantilla principal -->
+  <xsl:template match="/">
+    <html>
+      <body>
+        <table border="1">
+          <tr>
+            <th>Nombre</th>
+            <th>Grado</th>
+            <th>Año</th>
+          </tr>
+          <!-- Aplica la plantilla para cada ciclo, ordenando por año -->
+          <xsl:apply-templates select="//ciclo[grado='Superior']">
+            <xsl:sort select="decretoTitulo/@año" order="ascending"/>
+          </xsl:apply-templates>
+        </table>
+      </body>
+    </html>
+  </xsl:template>
+
+  <!-- Plantilla para cada ciclo -->
+  <xsl:template match="ciclo">
+    <tr>
+      <td><xsl:value-of select="nombre"/></td>
+      <td><xsl:value-of select="grado"/></td>
+      <td><xsl:value-of select="decretoTitulo/@año"/></td>
+    </tr>
+  </xsl:template>
+
+</xsl:stylesheet>
+
+
+-------------------------------------------
+
+Comentarios Explicativos
+Plantilla Principal: Se define en <xsl:template match="/"> y aplica plantillas para cada nodo <ciclo>.
+Plantilla para Cada Ciclo: Define cómo se transforma cada nodo <ciclo>.
+Ordenación: Utiliza <xsl:sort> para ordenar los ciclos por el atributo año.
+Filtrado: Utiliza una expresión XPath para seleccionar solo los ciclos con grado "Superior".
