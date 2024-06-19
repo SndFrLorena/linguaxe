@@ -1,0 +1,512 @@
+XML NBA:
+ <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="clase2.xsl"?>
+
+<nba>
+    <temporada>2020-2021</temporada>
+    <plantilla eq="1">
+        <jugador num="2">
+            <nombre>Bey, Tyler</nombre>
+            <puesto>E</puesto>
+            <altura ud="cm">201</altura>
+            <peso ud="kg">98</peso>
+        </jugador>
+
+        <jugador num="13">
+            <nombre>Brunson, Jale</nombre>
+            <puesto>B</puesto>
+            <altura ud="cm">185</altura>
+            <peso ud="kg">86</peso>
+        </jugador>
+        
+        <jugador num="3">
+            <nombre>Cleveland, Antonius</nombre>
+            <puesto>E</puesto>
+            <altura ud="cm">196</altura>
+            <peso ud="kg">88</peso>
+        </jugador>
+
+        <jugador num="33">
+            <nombre>Cauley-Stein, Willie</nombre>
+            <puesto>P</puesto>
+            <altura ud="cm">213</altura>
+            <peso ud="kg">109</peso>
+        </jugador>
+
+        <jugador num="77">
+            <nombre>Dončić, Luka</nombre>
+            <puesto>B</puesto>
+            <altura ud="cm">201</altura>
+            <peso ud="kg">104</peso>
+        </jugador>
+
+
+        <jugador num="10">
+            <nombre>Finney-Smith, Dorian</nombre>
+            <puesto>A</puesto>
+            <altura ud="cm">201</altura>
+            <peso ud="kg">100</peso>
+        </jugador>
+
+        <jugador num="8">
+            <nombre>Green, Josh</nombre>
+            <puesto>A</puesto>
+            <altura ud="cm">198</altura>
+            <peso ud="kg">95</peso>
+        </jugador>
+
+        <jugador num="11">
+            <nombre>Hardaway Jr., Tim</nombre>
+            <puesto>E</puesto>
+            <altura ud="cm">196</altura>
+            <peso ud="kg">93</peso>
+        </jugador>
+
+        <jugador num="14">
+            <nombre>Hinton, Nate</nombre>
+            <puesto>E</puesto>
+            <altura ud="cm">196</altura>
+            <peso ud="kg">95</peso>
+        </jugador>
+
+        <jugador num="42">
+            <nombre>Kleber, Maxi</nombre>
+            <puesto>A</puesto>
+            <altura ud="cm">208</altura>
+            <peso ud="kg">109</peso>
+        </jugador>
+
+        <jugador num="51">
+            <nombre>Marjanović, Boban</nombre>
+            <puesto>P</puesto>
+            <altura ud="cm">224</altura>
+            <peso ud="kg">132</peso>
+        </jugador>
+
+        <jugador num="44">
+            <nombre>Melli, Nicolò</nombre>
+            <puesto>AP</puesto>
+            <altura ud="cm">206</altura>
+            <peso ud="kg">107</peso>
+        </jugador>
+
+        <jugador num="6">
+            <nombre>Porziņģis, Kristaps</nombre>
+            <puesto>AP</puesto>
+            <altura ud="cm">221</altura>
+            <peso ud="kg">109</peso>
+        </jugador>
+
+        <jugador num="7">
+            <nombre>Powell, Dwigh</nombre>
+            <puesto>AP</puesto>
+            <altura ud="cm">208</altura>
+            <peso ud="kg">109</peso>
+        </jugador>
+
+        <jugador num="4">
+            <nombre>Redick, JJ</nombre>
+            <puesto>AP</puesto>
+            <puesto>E</puesto>
+            <altura ud="cm">191</altura>
+            <peso ud="kg">91</peso>
+        </jugador>
+
+        <jugador num="0">
+            <nombre>Richardson, Josh</nombre>
+            <puesto>E</puesto>
+            <altura ud="cm">196</altura>
+            <peso ud="kg">91</peso>
+        </jugador>
+
+        <jugador num="1">
+            <nombre>Terry, Tyrell</nombre>
+            <puesto>B</puesto>
+            <altura ud="cm">191</altura>
+            <peso ud="kg">77</peso>
+        </jugador>
+
+    </plantilla>
+
+
+    <plantilla eq="2">
+        <jugador num="1">
+            <nombre>Brown, Bruce</nombre>
+            <puesto>E</puesto>
+            <altura ud="cm">193</altura>
+            <peso ud="kg">92</peso>
+        </jugador>
+
+        <jugador num="4">
+            <nombre>Chiozza, Chris</nombre>
+            <puesto>B</puesto>
+            <altura ud="cm">180</altura>
+            <peso ud="kg">79</peso>
+        </jugador>
+
+        <jugador num="33">
+            <nombre>Claxton, Nicolas</nombre>
+            <puesto>AP</puesto>
+            <altura ud="cm">211</altura>
+            <peso ud="kg">98</peso>
+        </jugador>
+
+        <jugador num="26">
+            <nombre>Dinwiddie, Spencer</nombre>
+            <puesto>B</puesto>
+            <altura ud="cm">196</altura>
+            <peso ud="kg">98</peso>
+        </jugador>
+
+        <jugador num="7">
+            <nombre>Durant, Kevin	</nombre>
+            <puesto>A</puesto>
+            <altura ud="cm">208</altura>
+            <peso ud="kg">109</peso>
+        </jugador>
+
+
+        <jugador num="8">
+            <nombre>Green, Jeff</nombre>
+            <puesto>A</puesto>
+            <altura ud="cm">203</altura>
+            <peso ud="kg">107</peso>
+        </jugador>
+
+        <jugador num="2">
+            <nombre>Griffin, Blake</nombre>
+            <puesto>A</puesto>
+            <altura ud="cm">206</altura>
+            <peso ud="kg">113</peso>
+        </jugador>
+
+        <jugador num="13">
+            <nombre>Harden, James</nombre>
+            <puesto>B</puesto>
+            <altura ud="cm">196</altura>
+            <peso ud="kg">98</peso>
+        </jugador>
+
+        <jugador num="12">
+            <nombre>Harris, Joe</nombre>
+            <puesto>E</puesto>
+            <altura ud="cm">198</altura>
+            <peso ud="kg">100</peso>
+        </jugador>
+
+        <jugador num="11">
+            <nombre>Irving, Kyrie</nombre>
+            <puesto>B</puesto>
+            <altura ud="cm">188</altura>
+            <peso ud="kg">88</peso>
+        </jugador>
+
+        <jugador num="10">
+            <nombre>Johnson, Tyler	</nombre>
+            <puesto>B</puesto>
+            <altura ud="cm">191</altura>
+            <peso ud="kg">84</peso>
+        </jugador>
+
+        <jugador num="6">
+            <nombre>Jordan, DeAndre</nombre>
+            <puesto>P</puesto>
+            <altura ud="cm">211</altura>
+            <peso ud="kg">120</peso>
+        </jugador>
+
+        <jugador num="9">
+            <nombre>PLuwawu-Cabarrot, Timothé</nombre>
+            <puesto>E</puesto>
+            <altura ud="cm">201</altura>
+            <peso ud="kg">100</peso>
+        </jugador>
+
+        <jugador num="0">
+            <nombre>Perry, Reggie</nombre>
+            <puesto>AP</puesto>
+            <altura ud="cm">206</altura>
+            <peso ud="kg">113</peso>
+        </jugador>
+
+        <jugador num="20">
+            <nombre>RShamet, Landry	</nombre>
+            <puesto>E</puesto>
+            <altura ud="cm">193</altura>
+            <peso ud="kg">86</peso>
+        </jugador>
+
+      
+    </plantilla>
+    <equipo id="1">
+        <nombre>Dallas Mavericks</nombre>
+        <ubicacion>Dallas, Texas, USA</ubicacion>
+        <propietario>Mark Cuban</propietario>
+        <entrenador>Rick Carlisle</entrenador>
+        <estadio>American Airlines Center</estadio>
+        <web>https://www.mavs.com/</web>
+        <logo>https://www.mavs.com/wp-content/themes/mavs/images/logo.svg</logo>
+    </equipo>
+
+    <equipo id="2">
+        <nombre>Brooklyn Nets</nombre>
+        <ubicacion>Brooklyn, New York, USA</ubicacion>
+        <propietario>Joseph Tsai</propietario>
+        <entrenador>Steve Nash</entrenador>
+        <estadio>Barclays Center</estadio>
+        <web>https://www.nba.com/nets/</web>
+        <logo>https://upload.wikimedia.org/wikipedia/commons/4/44/Brooklyn_Nets_newlogo.svg</logo>
+    </equipo>
+
+
+</nba>
+
+
+--------------------------------------------------------------------------------
+
+SOLUCION:
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:template match="/nba">
+<html>
+<body>
+<h1>
+Temporada
+<xsl:value-of select="temporada"/>
+</h1>
+<ul>
+<xsl:for-each select="equipo">
+<h2>
+Equipo nº
+<xsl:value-of select="@id"/>
+:
+<xsl:value-of select="nombre"/>
+</h2>
+<li>
+<xsl:value-of select="ubicacion"/>
+</li>
+<li>
+<xsl:value-of select="propietario"/>
+</li>
+<li>
+<xsl:value-of select="entrenador"/>
+</li>
+<li>
+<xsl:value-of select="estadio"/>
+</li>
+<li>
+<a href="{web}"> web </a>
+</li>
+<img src="{logo}" alt="foto de {nombre}"/>
+</xsl:for-each>
+</ul>
+<xsl:for-each select="plantilla">
+<h3>
+Plantilla nº
+<xsl:value-of select="@eq"/>
+</h3>
+<table border="1">
+<tr bgcolor=" #FF4500">
+<th> Jugador nº </th>
+<th> Nombre </th>
+<th> Puesto </th>
+<th>
+Altura (
+<xsl:value-of select="jugador/altura/@ud"/>
+)
+</th>
+<th>
+Peso (
+<xsl:value-of select="jugador/peso/@ud"/>
+)
+</th>
+</tr>
+<xsl:for-each select="jugador">
+<xsl:sort select="puesto"/>
+<tr>
+<td>
+<xsl:value-of select="@num"/>
+</td>
+<td>
+<xsl:value-of select="nombre"/>
+</td>
+<td>
+<xsl:value-of select="puesto"/>
+</td>
+<td>
+<xsl:value-of select="altura"/>
+</td>
+<td>
+<xsl:value-of select="peso"/>
+</td>
+</tr>
+</xsl:for-each>
+</table>
+</xsl:for-each>
+</body>
+</html>
+</xsl:template>
+</xsl:stylesheet>
+
+---------------------------------------
+
+XSLT COMENTADO: 
+
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+  <!-- Define la hoja de estilo XSLT con el espacio de nombres y la versión -->
+  
+  <xsl:template match="/nba">
+    <!-- Plantilla principal que coincide con el elemento raíz /nba del documento XML de entrada -->
+    
+    <html>
+      <!-- Inicio del documento HTML de salida -->
+      <body>
+        <!-- Cuerpo del documento HTML -->
+        
+        <h1>
+          Temporada
+          <xsl:value-of select="temporada"/>
+          <!-- Título principal que muestra la temporada -->
+        </h1>
+        
+        <ul>
+          <!-- Lista no ordenada para mostrar información de equipos -->
+          <xsl:for-each select="equipo">
+            <!-- Itera sobre cada elemento equipo dentro de nba -->
+            
+            <h2>
+              Equipo nº
+              <xsl:value-of select="@id"/>
+              : 
+              <xsl:value-of select="nombre"/>
+              <!-- Título de equipo mostrando su ID y nombre -->
+            </h2>
+            
+            <li>
+              <xsl:value-of select="ubicacion"/>
+              <!-- Muestra la ubicación del equipo -->
+            </li>
+            <li>
+              <xsl:value-of select="propietario"/>
+              <!-- Muestra el propietario del equipo -->
+            </li>
+            <li>
+              <xsl:value-of select="entrenador"/>
+              <!-- Muestra el entrenador del equipo -->
+            </li>
+            <li>
+              <xsl:value-of select="estadio"/>
+              <!-- Muestra el estadio del equipo -->
+            </li>
+            <li>
+              <a href="{web}"> web </a>
+              <!-- Muestra un enlace al sitio web del equipo -->
+            </li>
+            <img src="{logo}" alt="foto de {nombre}"/>
+            <!-- Muestra la imagen del logo del equipo con el nombre como alternativa -->
+            
+          </xsl:for-each>
+          <!-- Fin del ciclo para equipos -->
+          
+        </ul>
+        <!-- Fin de la lista de equipos -->
+        
+        <xsl:for-each select="plantilla">
+          <!-- Itera sobre cada elemento plantilla dentro de nba -->
+          
+          <h3>
+            Plantilla nº
+            <xsl:value-of select="@eq"/>
+            <!-- Título de la plantilla mostrando su número -->
+          </h3>
+          
+          <table border="1">
+            <!-- Tabla para mostrar la lista de jugadores de la plantilla -->
+            <tr bgcolor="#FF4500">
+              <!-- Fila de encabezados de tabla con fondo naranja -->
+              <th> Jugador nº </th>
+              <th> Nombre </th>
+              <th> Puesto </th>
+              <th>
+                Altura (
+                <xsl:value-of select="jugador/altura/@ud"/>
+                )
+              </th>
+              <th>
+                Peso (
+                <xsl:value-of select="jugador/peso/@ud"/>
+                )
+              </th>
+            </tr>
+            
+            <xsl:for-each select="jugador">
+              <!-- Itera sobre cada jugador dentro de la plantilla -->
+              <xsl:sort select="puesto"/>
+              <!-- Ordena los jugadores por su puesto -->
+              
+              <tr>
+                <!-- Fila de datos de cada jugador -->
+                <td>
+                  <xsl:value-of select="@num"/>
+                  <!-- Muestra el número de jugador -->
+                </td>
+                <td>
+                  <xsl:value-of select="nombre"/>
+                  <!-- Muestra el nombre del jugador -->
+                </td>
+                <td>
+                  <xsl:value-of select="puesto"/>
+                  <!-- Muestra el puesto del jugador -->
+                </td>
+                <td>
+                  <xsl:value-of select="altura"/>
+                  <!-- Muestra la altura del jugador -->
+                </td>
+                <td>
+                  <xsl:value-of select="peso"/>
+                  <!-- Muestra el peso del jugador -->
+                </td>
+              </tr>
+              
+            </xsl:for-each>
+            <!-- Fin del ciclo para jugadores -->
+            
+          </table>
+          <!-- Fin de la tabla de jugadores -->
+          
+        </xsl:for-each>
+        <!-- Fin del ciclo para plantillas -->
+        
+      </body>
+    </html>
+    <!-- Fin del documento HTML -->
+    
+  </xsl:template>
+  <!-- Fin de la plantilla principal -->
+  
+</xsl:stylesheet>
+<!-- Fin de la hoja de estilo XSLT -->
+
+
+Comentario:
+xsl:stylesheet: Declara la hoja de estilo XSLT con el espacio de nombres http://www.w3.org/1999/XSL/Transform y la versión 1.0.
+
+xsl
+match="/nba": Define la plantilla principal que coincide con el elemento raíz /nba del documento XML de entrada.
+
+html, body, h1, ul, li, h2, h3, table, tr, th, td, img: Son elementos HTML utilizados para estructurar y presentar los datos XML transformados en formato legible por humanos.
+
+xsl:value-of: Se utiliza para extraer y mostrar el contenido de los nodos XML dentro del documento HTML resultante.
+
+xsl:for-each: Permite iterar sobre conjuntos de nodos XML (equipo, plantilla, jugador) para generar estructuras repetitivas como listas (ul), tablas (table), y elementos de encabezado (h2, h3).
+
+xsl:sort: Utilizado dentro de xsl:for-each para ordenar los nodos según un criterio específico (en este caso, el puesto del jugador).
+
+En resumen, este documento XSLT transforma un documento XML que contiene información sobre equipos y plantillas de la NBA en un documento HTML estructurado que muestra detalles como nombre del equipo, propietario, entrenador, estadio, jugadores y sus atributos como puesto, altura y peso. Es un ejemplo práctico de cómo XSLT puede utilizarse para presentar datos XML de manera organizada y visualmente atractiva en formato HTML.
+
+
+
+
+
+
+
+
